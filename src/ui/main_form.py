@@ -17,13 +17,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
     QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QVBoxLayout, QWidget)
+    QSpinBox, QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(450, 207)
+        MainWindow.resize(450, 243)
         MainWindow.setMinimumSize(QSize(450, 0))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -32,6 +32,26 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(6, 6, 6, 6)
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(4, 4, 4, 4)
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_5)
+
+        self.label_password_len = QLabel(self.centralwidget)
+        self.label_password_len.setObjectName(u"label_password_len")
+
+        self.horizontalLayout_5.addWidget(self.label_password_len)
+
+        self.spinBox_password_len = QSpinBox(self.centralwidget)
+        self.spinBox_password_len.setObjectName(u"spinBox_password_len")
+
+        self.horizontalLayout_5.addWidget(self.spinBox_password_len)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_5)
+
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(4, 4, 4, 4)
@@ -136,6 +156,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.label_password_len.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638 \uae38\uc774", None))
         self.label_create_password.setText(QCoreApplication.translate("MainWindow", u"\uc0dd\uc131\ub41c \ube44\ubc00\ubc88\ud638 : ", None))
         self.pushButton_create_password.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638 \ub79c\ub364 \uc0dd\uc131", None))
         self.label_find_password.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638 \ucc3e\uae30 : ", None))
