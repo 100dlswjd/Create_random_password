@@ -1,6 +1,7 @@
 import sys
 import time
 import random
+import string
 
 from PySide6.QtWidgets import QMainWindow, QApplication
 from PySide6.QtCore import Slot, Signal, QObject
@@ -14,15 +15,13 @@ class StrSignal(QObject):
     msg = Signal(str)
 
 class Password:
-    def __init__(self):
-        self.password_ch = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP\{\}|ASDFGHJKL:\"ZXCVBNM<>?"        
+    def __init__(self):        
         self.password = ""
-    
-    def create(self, size : int):
-        self.password = ""
-        for idx in range(size):
-            self.password += self.password_ch[random.randint(0,len(self.password_ch)-1)]
-    
+        
+    def create(self, size : int, chars : str = string.ascii_letters + string.digits + string.punctuation):
+        self.password = [random.choice(chars) for _ in range(size)]
+        self.password = ''.join(self.password)
+        
     def __del__(self):
         pass
 

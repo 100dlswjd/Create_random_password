@@ -155,7 +155,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\ub79c\ub364 \ube44\ubc00\ubc88\ud638 \ucc3e\uae30", None))
         self.label_password_len.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638 \uae38\uc774", None))
         self.label_create_password.setText(QCoreApplication.translate("MainWindow", u"\uc0dd\uc131\ub41c \ube44\ubc00\ubc88\ud638 : ", None))
         self.pushButton_create_password.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638 \ub79c\ub364 \uc0dd\uc131", None))
