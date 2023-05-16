@@ -32,5 +32,24 @@ def Comparison_password(password : str):
             print("찾는 패스워드 : ", password)
             print("찾은 패스워드 : ", randompassowrd)
 
-password = CreatePassword(2, 5)
-Comparison_password(password)
+
+import string
+
+
+def generate_password(size : int, chars : str = string.ascii_letters + string.digits + string.punctuation) -> str:
+    password = [random.choice(chars) for _ in range(size)]
+    password = ''.join(password)
+    return password
+
+
+def ss():
+    for _ in range(3):
+        print(generate_password(3))
+
+    print(generate_password(3, "또는사용할문자열"))
+
+print(string.ascii_letters)
+print(string.digits)
+print(string.punctuation)
+
+print(string.ascii_letters+string.digits+string.punctuation)
