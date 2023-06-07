@@ -68,7 +68,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
             find_password.create(size)
             msg.msg.emit(find_password.password)
             timer_msg.msg.emit(str(int(time.time() - find_time)))
-            #time.sleep(0.000001)
+            time.sleep(0.000001)
             if exit_event.is_set() == True:
                 break
         state.ChangeState.emit(True)
@@ -82,8 +82,14 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
     
     @Slot()
     def btn_find_password_handler(self):
-        find_password_thread = Thread(target = self.find_password_thread_handler, args = (self.exit_event, self.state, self.find_password_msg, self.timer_msg, self.find_password, self.create_password.password, self.spinBox_password_len.value()))        
+        find_password_thread = Thread(target = self.find_password_thread_handler, args = (self.exit_event, self.state, self.find_password_msg, self.timer_msg, self.find_password, self.create_password.password, self.spinBox_password_len.value()))
+        find_password_thread_2 = Thread(target = self.find_password_thread_handler, args = (self.exit_event, self.state, self.find_password_msg, self.timer_msg, self.find_password, self.create_password.password, self.spinBox_password_len.value()))
+        find_password_thread_3 = Thread(target = self.find_password_thread_handler, args = (self.exit_event, self.state, self.find_password_msg, self.timer_msg, self.find_password, self.create_password.password, self.spinBox_password_len.value()))
+        find_password_thread_4 = Thread(target = self.find_password_thread_handler, args = (self.exit_event, self.state, self.find_password_msg, self.timer_msg, self.find_password, self.create_password.password, self.spinBox_password_len.value()))
         find_password_thread.start()
+        find_password_thread_2.start()
+        find_password_thread_3.start()
+        find_password_thread_4.start()
 
     @Slot(str)
     def create_password_msg_handler(self, msg : str):
